@@ -3,7 +3,7 @@ describe('Positive testing', () => {
       cy.visit('https://portal.telnyx.com/#/login/sign-in')
     })
   
-    it('TC04, The user should be able to log in to the existing account', () => {
+    it('TC06, The user should be able to log in to the existing account', () => {
 
         const email = "1992maksym1992@gmail.com"
         const password = "mynewTest123!"
