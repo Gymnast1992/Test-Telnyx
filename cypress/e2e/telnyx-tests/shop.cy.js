@@ -1,4 +1,4 @@
-const text = "Featured products";
+import Shop from "../../fixtures/pom/shop.page";
 
 describe("Shop", () => {
   beforeEach(() => {
@@ -6,13 +6,11 @@ describe("Shop", () => {
   });
 
   it("TC08, The user should be able to navigate to the Telnyx shop", () => {
-    cy.contains(text).should("be.visible");
+    Shop.txtFeaturedProducts.should("be.visible");
   });
 
   it("TC09, The user should be able to navigate to the Accessories section and verify the card", () => {
-    cy.get("#HeaderDrawer-accessories").click({ force: true });
-    cy.get(
-      "#CardLink-template--14828910739534__product-grid-6751953256526"
-    ).should("be.visible");
+    Shop.btnAccessories.click({ force: true });
+    Shop.firstCard.should("be.visible");
   });
 });

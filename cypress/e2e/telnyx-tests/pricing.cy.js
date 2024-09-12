@@ -1,3 +1,5 @@
+import Homepage from "../../fixtures/pom/home.page";
+import Pricing from "../../fixtures/pom/pricing.page";
 const text = "Pay only for what you use, when you use it.";
 
 describe("Pricing", () => {
@@ -6,11 +8,9 @@ describe("Pricing", () => {
   });
 
   it("TC07, The user should be able to navigate to the Pricing page", () => {
-    cy.get(".c-gMsfuT").click();
-    cy.get('[type="button"]').eq(1).click();
-    cy.contains("See all pricing").click({ force: true });
-    cy.get('[class="c-PJLV c-fKwEGa c-PJLV-cHtIMp-dark-false"]')
-      .eq(0)
-      .should("have.text", text);
+    Homepage.btnHamburgerMenu.click();
+    Pricing.btnPricing.click();
+    Pricing.btnSeeAllPricing.click({ force: true });
+    Pricing.sectionGreen.should("have.text", text);
   });
 });
