@@ -1,0 +1,28 @@
+# Ignore node modules
+node_modules/
+
+# Cypress configuration
+cypress.json
+cypress.env.json
+
+# Cypress output folders
+cypress/screenshots/
+cypress/videos/
+
+# Cypress cache and logs
+.cypress_cache/
+cypress/logs/
+
+# Coverage directory if you are using code coverage
+coverage/
+
+# npm package lock file
+package-lock.json
+
+# Ignore IDE specific files (optional, based on your setup)
+.vscode/
+.idea/
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
