@@ -1,0 +1,52 @@
+name: Cypress Tests and Deploy Report
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Generate Allure Report
+        if: always()
+        run: npm run allure:generate
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: allure-test-results
+          path: allure-results/
+
+      - name: Publish JUnit Report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          report_paths: 'junit-results/*.xml'
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report  # The directory containing the report to be deployed
