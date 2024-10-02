@@ -21,8 +21,11 @@ This repository contains automated end-to-end tests for the Telnyx project using
 3.Install the required Node.js dependencies:
    npm install
 
-4.Install Playwright browsers:
-   npx cypress open
+4.Node.modules file
+   npm init
+
+5.Install Cypress :
+   npm install cypress --save-dev
 
 
 # RUN TESTS:
