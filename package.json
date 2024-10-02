@@ -1,5 +1,15 @@
 {
+  "name": "cypress-telnyx-project",
+  "version": "1.0.0",
+  "description": "A project to run Cypress tests",
+  "scripts": {
+    "test": "cypress open",
+    "test:run": "cypress run"
+  },
+  "dependencies": {},
   "devDependencies": {
     "cypress": "^13.14.2"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }
